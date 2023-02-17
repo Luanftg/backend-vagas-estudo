@@ -11,7 +11,15 @@
   - ![Alt text](assets/router.jpg)
     - GET '/'
       - ![Alt text](assets/first_router.jpg)
+    - POST '/login'
 - Passagem de Dados com Query e Router Parms
+  - Router param
+    - obter parâmetro diretamente da url.Exemplo:  `http://localhost:8080/<variavel>`
+  - Query parms
+    - busca pelo parametro na url atraves da estrutura
+      - ``String? nome = req.url.queryParameters['nome]``
+      - Passagem por  ``http://localhost:8080/query?nome=Luan``
+      - ![Alt text](assets/params-QueryAndRouter.jpg)
 - Mime Type - JSon
 - Cascade e PipeLine
 - DotEnv

@@ -20,8 +20,13 @@
       - ``String? nome = req.url.queryParameters['nome]``
       - Passagem por  ``http://localhost:8080/query?nome=Luan``
       - ![Alt text](assets/params-QueryAndRouter.jpg)
-- Mime Type - JSon
+- [Mime Type](https://developer.mozilla.org/en-US/docs/WebHTTP/Basics_of_HTTP/MIME_types/Common_types) - inseridos no headers da *Response* na chave `content-type`
+  - *Exemplos*
+  - ``content-type: application/json``
+  - ``content-type: text/html``
 - Cascade e PipeLine
+  - [Builder - Pattern](https://refactoring.guru/
+  - ![Alt text](https://refactoring.guru/images/patterns/diagrams/builder/structure.png?id%3Dfe9e23559923ea0657aa5fe75efef333)design-patterns/builder)
 - DotEnv
 - Model Layer
 - Service Layer

@@ -9,6 +9,15 @@ class ServeHandler {
       '/',
       (Request request) => Response(200, body: 'Primeira rota!'),
     );
+
+    router.get('/ola/mundo/<usuario>', (Request request, String usuario) {
+      return Response.ok('Olá Mundo, $usuario!');
+    });
+
+    router.get('/query', (Request req) {
+      String? nome = req.url.queryParameters['nome'];
+      return Response.ok('Query eh: $nome');
+    });
     return router;
   }
 }

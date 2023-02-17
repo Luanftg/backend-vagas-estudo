@@ -1,12 +1,16 @@
-# Backend em DArt para Aplicação: Vagas
+# :computer: Backend em Dart para Aplicação: Vagas
 
-Backedn desenvolvido em DArt para servir tanto ao App Mobile - acesso do Cliente quanto a página Web - acesso do recrutador e administrador.
+**Backend** desenvolvido em *Dart* para servir tanto ao **App Mobile** - acesso do Cliente, quanto a **página Web** - acesso do recrutador e administrador.
 
 ## Passos da Implementação
 
-- Protocolo Http e Padrão REST
 - Criação do Servidor
+  - ![Alt text](assets/server_inicial.jpg)
 - Criação da Api
+  - Rotas
+  - ![Alt text](assets/router.jpg)
+    - GET '/'
+      - ![Alt text](assets/first_router.jpg)
 - Passagem de Dados com Query e Router Parms
 - Mime Type - JSon
 - Cascade e PipeLine

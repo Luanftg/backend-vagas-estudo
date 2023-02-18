@@ -24,4 +24,9 @@ class CustomEnv {
   static Future<String> _readFile() async {
     return await File(_file).readAsString();
   }
+
+  static Future<File> writeFile(String contents) async {
+    var file = File('bin/db/fakeDb.json');
+    return await file.writeAsString(contents, mode: FileMode.append);
+  }
 }

@@ -28,6 +28,7 @@
   - [Builder - Pattern](https://refactoring.guru/
   - ![Alt text](https://refactoring.guru/images/patterns/diagrams/builder/structure.png?id%3Dfe9e23559923ea0657aa5fe75efef333)design-patterns/builder)
 - DotEnv
+  - Desenvolvendo um 'leitor de arquivos' que contém informações sensíveis.
 - Model Layer
 - Service Layer
   - Isolamento da camada Service

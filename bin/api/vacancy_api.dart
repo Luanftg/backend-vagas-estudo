@@ -4,10 +4,9 @@ import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 import '../models/vacancy_model.dart';
 import '../services/generic_service.dart';
-import '../utils/custom_env.dart';
 
 class VacancyApi {
-  final GenericService _service;
+  final GenericService<VacancyModel> _service;
 
   VacancyApi(this._service);
 
@@ -15,17 +14,16 @@ class VacancyApi {
     Router router = Router();
 
     router.get('/vacancy', (Request req) {
-      var vacancyList = _service.findAll();
-      var jsonResponse = vacancyList.map((e) => e.toJson()).toList().toString();
-      return Response(200,
-          body: jsonResponse, headers: {'content-type': 'application/json'});
+      List<VacancyModel> vacancyList = _service.findAll();
+      List<Map> vacancyMap = vacancyList.map((e) => e.toJson()).toList();
+      return Response.ok(jsonEncode(vacancyMap),
+          headers: {'content-type': 'application/json'});
     });
 
     router.post('/vacancy', (Request req) async {
       var body = await req.readAsString();
       var vacancy = VacancyModel.fromMap(jsonDecode(body));
       var saved = _service.save(vacancy);
-      saved ? await CustomEnv.writeFile(jsonEncode(vacancy)) : false;
       return saved ? Response(201) : Response.internalServerError();
     });
 

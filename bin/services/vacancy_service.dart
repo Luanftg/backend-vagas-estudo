@@ -1,47 +1,47 @@
-import '../db/fake_db.dart';
 import '../models/vacancy_model.dart';
+import '../utils/list_extension.dart';
 import 'generic_service.dart';
 
 class VacancyService implements GenericService<VacancyModel> {
+  List<VacancyModel> _fakeDB = [];
   @override
   bool delete(int id) {
-    FakeDB.vacancyList.removeWhere((element) => element['id'] == id);
-    var alreadyOnList =
-        FakeDB.vacancyList.every((element) => element['id'] == id);
-    return !alreadyOnList;
+    var exist = _fakeDB.any((element) => element.id == id);
+    if (exist) {
+      _fakeDB.removeWhere((element) => element.id == id);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
   List<VacancyModel> findAll() {
-    var mappedList = FakeDB.vacancyList;
-    var vacancyList = mappedList.map((e) => VacancyModel.fromMap(e)).toList();
-    return vacancyList;
+    return _fakeDB;
   }
 
   @override
   VacancyModel? findOne(int id) {
-    var map = FakeDB.vacancyList.firstWhere((element) => element['id'] == id);
-    if (map.isEmpty) {
+    VacancyModel? model =
+        _fakeDB.firstWhereOrNull((element) => element.id == id);
+    if (model == null) {
       return null;
     } else {
-      var vacancy = VacancyModel.fromMap(map);
-      return vacancy;
+      return model;
     }
   }
 
   @override
   bool save(VacancyModel value) {
-    var map = value.toMap();
-    if (map['id'] == 0) {
-      map.addAll({'id': FakeDB.vacancyList.length + 1});
-      FakeDB.vacancyList.add(map);
+    VacancyModel? model =
+        _fakeDB.firstWhereOrNull((element) => element.id == value.id);
+    if (model == null) {
+      _fakeDB.add(value);
     } else {
-      int index =
-          FakeDB.vacancyList.indexWhere((element) => element['id'] == value.id);
+      int index = _fakeDB.indexWhere((element) => element.id == value.id);
 
-      if (index > 0) FakeDB.vacancyList.insert(index, map);
+      if (index > 0) _fakeDB.insert(index, value);
     }
-    var isOnList = FakeDB.vacancyList.contains(map);
-    return isOnList;
+    return _fakeDB.contains(value);
   }
 }

@@ -50,7 +50,13 @@ class VacancyModel {
     );
   }
 
-  String toJson() => json.encode(toMap());
+  Map toJson() => {
+        'id': id,
+        'title': title,
+        'description': description,
+        'createdAt': createdAt.millisecondsSinceEpoch,
+        if (updatedAt != null) 'updatedAt': updatedAt!.millisecondsSinceEpoch,
+      };
 
   factory VacancyModel.fromJson(String source) =>
       VacancyModel.fromMap(json.decode(source));

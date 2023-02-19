@@ -15,6 +15,8 @@ Exercício de criação de **Backend** e **API-REST**, desenvolvido em *Dart*, p
     - busca pelo parametro na url atraves da estrutura
       - ``String? nome = req.url.queryParameters['nome]``
       - Passagem por  ``http://localhost:8080/query?nome=Luan``
+  - body param
+    - ``String body = await req.readAsString()``
 
 - [Mime Type](https://developer.mozilla.org/en-US/docs/WebHTTP/Basics_of_HTTP/MIME_types/Common_types) - inseridos no headers da *Response* na chave `content-type`
   - *Exemplos*

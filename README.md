@@ -41,7 +41,7 @@ Exercício de criação de **Backend** e **API-REST**, desenvolvido em *Dart*, p
 - [x] DotEnv
   - Desenvolvendo um 'leitor de arquivos' que contém informações sensíveis.
 - [x] Model Layer
-  - ![Alt text](assets/model.jpg)
+  - ![Alt text](assets/model.png)
 - Service Layer
   - Isolamento da camada Service
     - Interface de Serviço Genérica

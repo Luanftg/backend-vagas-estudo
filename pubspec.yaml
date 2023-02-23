@@ -7,6 +7,7 @@ environment:
   sdk: '>=2.19.0 <3.0.0'
 
 dependencies:
+  dart_jsonwebtoken: ^2.7.1
   path: ^1.8.0
   shelf: ^1.4.0
   shelf_router: ^1.1.3

@@ -30,7 +30,8 @@ Exercício de criação de **Backend** e **API-REST**, desenvolvido em *Dart*, p
     - [x] DELETE '/vacancy'
 
 - [x] Model Layer
-  - ![Alt text](assets/model.png)
+  - ![Alt text](assets/entities.png)
+
 - Service Layer
   - Interface de Serviço Genérica
   - Isolamento da camada Service

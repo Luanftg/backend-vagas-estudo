@@ -4,20 +4,21 @@ import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 import '../models/vacancy_model.dart';
 import '../services/generic_service.dart';
+import 'api.dart';
 
-class VacancyApi {
+class VacancyApi extends Api {
   final GenericService<VacancyModel> _service;
 
   VacancyApi(this._service);
 
-  Handler get handler {
+  @override
+  Handler getHandler({List<Middleware>? middlewares, bool isSecurity = false}) {
     Router router = Router();
 
     router.get('/vacancy', (Request req) {
       List<VacancyModel> vacancyList = _service.findAll();
       List<Map> vacancyMap = vacancyList.map((e) => e.toJson()).toList();
-      return Response.ok(jsonEncode(vacancyMap),
-          headers: {'content-type': 'application/json'});
+      return Response.ok(jsonEncode(vacancyMap));
     });
 
     router.post('/vacancy', (Request req) async {
@@ -46,6 +47,10 @@ class VacancyApi {
       }
       return Response.badRequest();
     });
-    return router;
+    return createHandler(
+      router: router,
+      middlewares: middlewares,
+      isSecurity: isSecurity,
+    );
   }
 }
